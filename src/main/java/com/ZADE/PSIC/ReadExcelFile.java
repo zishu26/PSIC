@@ -7,9 +7,13 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import static com.ZADE.PSIC.FormatNumber.formatNumericValue;
+
 @Slf4j
 public class ReadExcelFile {
     public static List<String> readExcelFile(String filePath, String columnNameToFilter) throws IOException {
@@ -39,7 +43,14 @@ public class ReadExcelFile {
             Row row = rowIterator.next();
             Cell cell = row.getCell(columnIndex);
             if (cell != null) {
-                rowDataList.add(cell.toString());
+                String cellValue;
+                if (cell.getCellType() == CellType.NUMERIC) {
+                    double numericValue = cell.getNumericCellValue();
+                    cellValue = formatNumericValue(numericValue);
+                } else {
+                    cellValue = cell.toString();
+                }
+                rowDataList.add(cellValue);
             }
         }
         fis.close();
