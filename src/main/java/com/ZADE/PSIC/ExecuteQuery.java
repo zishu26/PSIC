@@ -21,10 +21,10 @@ public class ExecuteQuery {
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/student");
-        dataSource.setUsername("root");
-        dataSource.setPassword("Summer@26");
+        dataSource.setDriverClassName("");
+        dataSource.setUrl("");
+        dataSource.setUsername("");
+        dataSource.setPassword("");
         return dataSource;
     }
 
