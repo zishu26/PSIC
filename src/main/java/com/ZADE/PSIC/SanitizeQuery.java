@@ -8,7 +8,7 @@ import java.io.*;
 public class SanitizeQuery {
     public static void sanitizeQuery() {
         try {
-            String filePath = "D:\\Study\\pcis\\PSIC\\PCIS-testing.txt";
+            String filePath = "D:\\Study\\pcis\\PSIC\\PTest.txt";
             BufferedReader reader = new BufferedReader(new FileReader(filePath));
             StringBuilder content = new StringBuilder();
             String line;
